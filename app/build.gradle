@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.daggerapplication'
+    namespace 'com.example.rickmortyapp'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.daggerapplication"
+        applicationId "com.example.rickmortyapp"
         minSdk 21
         targetSdk 33
         versionCode 1
@@ -71,4 +71,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
     //noinspection GradleDependency
     implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
+
+//    implementation "com.jakewharton.timber:timber:$timberVersion"
+
 }

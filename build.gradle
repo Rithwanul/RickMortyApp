@@ -26,4 +26,5 @@ ext {
     testJunitVersion = '1.1.5'
     espressoVersion = '3.5.1'
     navVersion = "2.6.0"
+    timberVersion = "4.7.1'"
 }
