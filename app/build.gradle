@@ -72,6 +72,16 @@ dependencies {
     //noinspection GradleDependency
     implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
 
-//    implementation "com.jakewharton.timber:timber:$timberVersion"
 
+    /*
+    * Timber Logger library
+    * */
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+
+
+    /*
+    * Image Caching library
+    * URL: https://github.com/bumptech/glide
+    * */
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
 }
