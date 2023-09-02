@@ -6,7 +6,7 @@ import dagger.Binds
 import dagger.Module
 
 
-@Module
+@Module(includes = [ViewModelModule::class, NetworkingModule::class])
 abstract class AppModule {
 
     @Binds

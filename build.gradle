@@ -1,11 +1,32 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext {
+        daggerVersion = '2.47'
+        coreKtxVersion = '1.10.1'
+        appCompactVersion = '1.6.1'
+        materialVersion = '1.9.0'
+        constraintLayoutVersion = '2.1.4'
+        junitVersion = '4.13.2'
+        testJunitVersion = '1.1.5'
+        espressoVersion = '3.5.1'
+        navVersion = "2.6.0"
+        timberVersion = "4.7.1"
+        glideVersion = "4.16.0"
+        gsonVersion = '2.10.1'
+        retrofitVersion = '2.9.0'
+        retrofitGsonConverterVersion = '2.9.0'
+        okHttpVersion = '4.10.0'
+        loggingInterceptorVersion = '4.10.0'
+        lifecycleVersion = '2.6.1'
+        lifecycleExtensionVersion = '2.2.0'
+    }
+
+
     repositories {
         google()
     }
     dependencies {
-        def nav_version = "2.6.0"
-        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navVersion"
     }
 }
 
@@ -16,16 +37,3 @@ plugins {
 }
 
 
-ext {
-    daggerVersion = '2.47'
-    coreKtxVersion = '1.10.1'
-    appCompactVersion = '1.6.1'
-    materialVersion = '1.9.0'
-    constraintLayoutVersion = '2.1.4'
-    junitVersion = '4.13.2'
-    testJunitVersion = '1.1.5'
-    espressoVersion = '3.5.1'
-    navVersion = "2.6.0"
-    timberVersion = "4.7.1"
-    glideVersion = "4.16.0"
-}

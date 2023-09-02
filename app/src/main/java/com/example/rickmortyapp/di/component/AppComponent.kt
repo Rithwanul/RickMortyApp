@@ -1,13 +1,13 @@
 package com.example.rickmortyapp.di.component
 
 import com.example.rickmortyapp.base.BaseApplication
-import com.example.rickmortyapp.di.module.ActivityBuilderModule
-import com.example.rickmortyapp.di.module.AppModule
-import com.example.rickmortyapp.di.module.NavHostModule
+import com.example.rickmortyapp.di.module.*
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = [
     AndroidSupportInjectionModule::class,
     ActivityBuilderModule::class,
