@@ -9,13 +9,8 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
-class CharacterViewModel @Inject constructor(private val api: NetworkService, private val gson: Gson): ViewModel() {
-
-
-//    private var _characters: MutableLiveData<CharacterResponse> = MutableLiveData()
-//    val characters :LiveData<CharacterResponse> = _characters
-
-
+class CharacterViewModel @Inject constructor(private val api: NetworkService,
+                                             private val gson: Gson): ViewModel() {
 
     fun getAllCharacter() {
         viewModelScope.launch {
