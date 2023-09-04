@@ -19,6 +19,8 @@ buildscript {
         loggingInterceptorVersion = '4.10.0'
         lifecycleVersion = '2.6.1'
         lifecycleExtensionVersion = '2.2.0'
+        lifecycleViewModelKtx = '2.6.1'
+        roomVersion = '2.5.2'
     }
 
 

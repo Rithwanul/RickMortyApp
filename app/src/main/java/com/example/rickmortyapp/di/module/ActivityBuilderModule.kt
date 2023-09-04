@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 
-@Module
+@Module()
 abstract class ActivityBuilderModule {
 
     @ContributesAndroidInjector(modules = [

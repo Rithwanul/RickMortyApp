@@ -6,13 +6,12 @@ import dagger.Binds
 import dagger.Module
 
 
-@Module(includes = [ViewModelModule::class, NetworkingModule::class])
+@Module(includes = [
+    ViewModelModule::class,
+    NetworkingModule::class,
+    DataBaseModule::class
+])
 abstract class AppModule {
-
-    @Binds
-    abstract fun bindApplication(app: BaseApplication): Application
-
-//    @Provides
-//    @Singleton
-//    fun provideContext(baseApplication: BaseApplication): Context = baseApplication
+//    @Binds
+//    abstract fun bindApplication(app: BaseApplication): Application
 }
