@@ -2,16 +2,18 @@ package com.example.rickmortyapp.database
 
 import android.content.Context
 import androidx.room.*
-import com.example.rickmortyapp.dao.CharacterDAO
-import com.example.rickmortyapp.dao.InfoDAO
-import com.example.rickmortyapp.model.entity.Character;
-import com.example.rickmortyapp.model.entity.Info
+import com.example.rickmortyapp.dao.*
+import com.example.rickmortyapp.model.entity.*
 
 
 @Database(
     entities = [
         Character::class,
-        Info::class
+        Info::class,
+        CharacterDetails::class,
+        Origin::class,
+        Location::class,
+        Episode::class
     ],
     version = AppDataBase.version,
     exportSchema = false
@@ -19,7 +21,7 @@ import com.example.rickmortyapp.model.entity.Info
 abstract class AppDataBase: RoomDatabase() {
 
     companion object {
-        const val version: Int = 3
+        const val version: Int = 4
 
         private var INSTANCE: AppDataBase? = null
 
@@ -36,4 +38,8 @@ abstract class AppDataBase: RoomDatabase() {
 
     abstract fun getCharacterDAO(): CharacterDAO
     abstract fun getInfoDAO(): InfoDAO
+    abstract fun getCharacterDetailsDAO(): CharacterDetailsDAO
+    abstract fun getLocationDAO(): LocationDAO
+    abstract fun getOriginDAO(): OriginDAO
+    abstract fun getEpisodeDAO(): EpisodeDAO
 }

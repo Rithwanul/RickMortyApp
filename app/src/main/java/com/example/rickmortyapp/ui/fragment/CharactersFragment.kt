@@ -11,14 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.rickmortyapp.R
-import com.example.rickmortyapp.dao.CharacterDAO
-import com.example.rickmortyapp.dao.InfoDAO
+import com.example.rickmortyapp.dao.*
 import com.example.rickmortyapp.databinding.FragmentCharactersBinding
+import com.example.rickmortyapp.model.entity.*
 import com.example.rickmortyapp.viewmodel.CharacterViewModel
 import timber.log.Timber
 import javax.inject.Inject
-import com.example.rickmortyapp.model.entity.Character
-import com.example.rickmortyapp.model.entity.Info
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,7 +24,13 @@ import kotlinx.coroutines.launch
 
 class CharactersFragment @Inject constructor(
     private val factory: ViewModelProvider.Factory,
-    private val infoDAO: InfoDAO
+    private val infoDAO: InfoDAO,
+    private val characterDAO: CharacterDAO,
+    private val characterDetailsDAO: CharacterDetailsDAO,
+    private val originDAO: OriginDAO,
+    private val locationDAO: LocationDAO,
+    private val episodeDAO: EpisodeDAO
+
 ) : Fragment() {
 
     private lateinit var binding: FragmentCharactersBinding
@@ -36,8 +40,8 @@ class CharactersFragment @Inject constructor(
 //    @Inject
 //    lateinit var name: String
 
-    @Inject
-    lateinit var characterDAO: CharacterDAO
+//    @Inject
+//    lateinit var characterDAO: CharacterDAO
 
 //    @Inject
 //    lateinit var infoDAO: InfoDAO
@@ -72,17 +76,56 @@ class CharactersFragment @Inject constructor(
         val character: Character = Character(1, "Dico")
 
         val info: Info = Info(
-            1, character.characterId,
+            0, character.characterId,
             10, 1,
             "Hello", "Bye"
         )
 
+        val origin: Origin = Origin(
+            1,
+            1,
+            "Name",
+            "https://www.google.com"
+        )
+
+        val location: Location = Location(
+            1,
+            1,
+            "Name",
+            "https://www.google.com"
+        )
+
+        val episode: Episode = Episode(
+            1,
+            1,
+            "https://www.google.com"
+        )
+
+        val characterDetails: CharacterDetails = CharacterDetails(
+            1,
+            "name",
+            "Alive",
+            "Homo",
+            "Human",
+            "Male",
+            "Jojo",
+            "12-08-2020"
+        )
+
+
+//        CoroutineScope(Dispatchers.IO).launch {
+//            characterDAO.insert(character)
+//            infoDAO.insert(info)
+//            characterDetailsDAO.insert(characterDetails)
+//            originDAO.insert(origin)
+//            locationDAO.insert(location)
+//            episodeDAO.insert(episode)
+//
+//            Timber.tag("Data").v(characterDAO.getCharacters().toString())
+//        }
 
         CoroutineScope(Dispatchers.IO).launch {
-            characterDAO.insert(character)
-            infoDAO.insert(info)
-
-            Timber.tag("Data").v(characterDAO.getCharacters().toString())
+            Timber.tag("Data").v(characterDetailsDAO.getCharacters().toString())
         }
     }
 
