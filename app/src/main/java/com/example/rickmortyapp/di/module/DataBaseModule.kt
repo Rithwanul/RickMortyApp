@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.rickmortyapp.base.BaseApplication
 import com.example.rickmortyapp.dao.CharacterDAO
+import com.example.rickmortyapp.dao.InfoDAO
 import com.example.rickmortyapp.database.AppDataBase
 import dagger.Module
 import dagger.Provides
@@ -22,5 +23,5 @@ object DataBaseModule {
     fun provideCharacterDao(appDataBase: AppDataBase): CharacterDAO = appDataBase.getCharacterDAO()
 
     @Provides
-    fun getName(): String = "Dico"
+    fun getInfoDAO(appDataBase: AppDataBase): InfoDAO = appDataBase.getInfoDAO()
 }

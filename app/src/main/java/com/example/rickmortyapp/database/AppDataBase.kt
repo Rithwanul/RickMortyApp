@@ -2,14 +2,16 @@ package com.example.rickmortyapp.database
 
 import android.content.Context
 import androidx.room.*
-import androidx.sqlite.db.SupportSQLiteOpenHelper
 import com.example.rickmortyapp.dao.CharacterDAO
+import com.example.rickmortyapp.dao.InfoDAO
 import com.example.rickmortyapp.model.entity.Character;
+import com.example.rickmortyapp.model.entity.Info
 
 
 @Database(
     entities = [
-        Character::class
+        Character::class,
+        Info::class
     ],
     version = AppDataBase.version,
     exportSchema = false
@@ -17,7 +19,7 @@ import com.example.rickmortyapp.model.entity.Character;
 abstract class AppDataBase: RoomDatabase() {
 
     companion object {
-        const val version: Int = 1
+        const val version: Int = 3
 
         private var INSTANCE: AppDataBase? = null
 
@@ -33,4 +35,5 @@ abstract class AppDataBase: RoomDatabase() {
     }
 
     abstract fun getCharacterDAO(): CharacterDAO
+    abstract fun getInfoDAO(): InfoDAO
 }

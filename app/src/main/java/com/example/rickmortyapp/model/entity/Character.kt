@@ -8,8 +8,8 @@ import com.google.gson.annotations.SerializedName
 data class Character (
 
     @PrimaryKey(autoGenerate = true)
-    @field:SerializedName("id")
-    val id: Int,
+    @field:SerializedName("characterId")
+    val characterId: Long,
 
     @field:SerializedName("name")
     val name: String?
