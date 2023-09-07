@@ -40,15 +40,6 @@ class CharactersFragment @Inject constructor(
 
     private lateinit var characterViewModel: CharacterViewModel
 
-//    @Inject
-//    lateinit var name: String
-
-//    @Inject
-//    lateinit var characterDAO: CharacterDAO
-
-//    @Inject
-//    lateinit var infoDAO: InfoDAO
-
 
     @Inject
     lateinit var app: Context
