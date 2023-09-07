@@ -3,6 +3,7 @@ package com.example.rickmortyapp.database
 import android.content.Context
 import androidx.room.*
 import com.example.rickmortyapp.dao.*
+import com.example.rickmortyapp.dao.CharacterDetailsEpisodeCrossRefDAO
 import com.example.rickmortyapp.model.entity.*
 
 
@@ -13,7 +14,8 @@ import com.example.rickmortyapp.model.entity.*
         CharacterDetails::class,
         Origin::class,
         Location::class,
-        Episode::class
+        Episode::class,
+        CharacterDetailsEpisodeCrossRef::class
     ],
     version = AppDataBase.version,
     exportSchema = false
@@ -21,7 +23,7 @@ import com.example.rickmortyapp.model.entity.*
 abstract class AppDataBase: RoomDatabase() {
 
     companion object {
-        const val version: Int = 4
+        const val version: Int = 5
 
         private var INSTANCE: AppDataBase? = null
 
@@ -42,4 +44,5 @@ abstract class AppDataBase: RoomDatabase() {
     abstract fun getLocationDAO(): LocationDAO
     abstract fun getOriginDAO(): OriginDAO
     abstract fun getEpisodeDAO(): EpisodeDAO
+    abstract fun getCharacterDetailsEpisodeCrossRefDAO(): CharacterDetailsEpisodeCrossRefDAO
 }

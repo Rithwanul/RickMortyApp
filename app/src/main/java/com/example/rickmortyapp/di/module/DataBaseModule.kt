@@ -41,4 +41,9 @@ object DataBaseModule {
     @Provides
     fun getCharacterDetailsDAO(appDataBase: AppDataBase): CharacterDetailsDAO = appDataBase.getCharacterDetailsDAO()
 
+//    @Singleton
+//    @Provides
+//    fun getCharacterDetailsEpisodeCrossRefDAO(appDataBase: AppDataBase): CharacterDetailsEpisodeCrossRefDAO
+//    = appDataBase.getCharacterDetailsCrossRefDAO()
+
 }

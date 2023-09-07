@@ -9,7 +9,7 @@ buildscript {
         junitVersion = '4.13.2'
         testJunitVersion = '1.1.5'
         espressoVersion = '3.5.1'
-        navVersion = "2.6.0"
+        navVersion = "2.5.3"
         timberVersion = "4.7.1"
         glideVersion = "4.16.0"
         gsonVersion = '2.10.1'

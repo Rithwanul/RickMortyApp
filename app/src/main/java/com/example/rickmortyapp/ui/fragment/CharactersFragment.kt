@@ -15,6 +15,7 @@ import com.example.rickmortyapp.dao.*
 import com.example.rickmortyapp.databinding.FragmentCharactersBinding
 import com.example.rickmortyapp.model.entity.*
 import com.example.rickmortyapp.viewmodel.CharacterViewModel
+import com.google.gson.Gson
 import timber.log.Timber
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineScope
@@ -29,7 +30,9 @@ class CharactersFragment @Inject constructor(
     private val characterDetailsDAO: CharacterDetailsDAO,
     private val originDAO: OriginDAO,
     private val locationDAO: LocationDAO,
-    private val episodeDAO: EpisodeDAO
+    private val episodeDAO: EpisodeDAO,
+    private val gson: Gson
+//    private val characterDetailsEpisodeCrossRefDAO: CharacterDetailsEpisodeCrossRefDAO
 
 ) : Fragment() {
 
@@ -97,7 +100,13 @@ class CharactersFragment @Inject constructor(
 
         val episode: Episode = Episode(
             1,
-            1,
+//            1,
+            "https://www.google.com"
+        )
+
+        val episodeTwo: Episode = Episode(
+            2,
+//            1,
             "https://www.google.com"
         )
 
@@ -112,20 +121,39 @@ class CharactersFragment @Inject constructor(
             "12-08-2020"
         )
 
+        val characterDetailsEpisodeCrossRef = CharacterDetailsEpisodeCrossRef(
+            1,
+            1
+        )
 
-//        CoroutineScope(Dispatchers.IO).launch {
-//            characterDAO.insert(character)
-//            infoDAO.insert(info)
-//            characterDetailsDAO.insert(characterDetails)
-//            originDAO.insert(origin)
-//            locationDAO.insert(location)
-//            episodeDAO.insert(episode)
-//
-//            Timber.tag("Data").v(characterDAO.getCharacters().toString())
-//        }
+        val characterDetailsEpisodeCrossRefTwo = CharacterDetailsEpisodeCrossRef(
+            1,
+            2
+        )
+
+        val characterDetailsEpisodeCrossRefThree = CharacterDetailsEpisodeCrossRef(
+            2,
+            1
+        )
+
 
         CoroutineScope(Dispatchers.IO).launch {
-            Timber.tag("Data").v(characterDetailsDAO.getCharacters().toString())
+            characterDAO.insert(character)
+            infoDAO.insert(info)
+            characterDetailsDAO.insert(characterDetails)
+            originDAO.insert(origin)
+            locationDAO.insert(location)
+            episodeDAO.insert(episode)
+            episodeDAO.insert(episodeTwo)
+            characterDetailsDAO.insertCharacterCrossRef(characterDetailsEpisodeCrossRef)
+            characterDetailsDAO.insertCharacterCrossRef(characterDetailsEpisodeCrossRefTwo)
+            characterDetailsDAO.insertCharacterCrossRef(characterDetailsEpisodeCrossRefThree)
+
+            Timber.tag("Data").v(characterDAO.getCharacters().toString())
+        }
+
+        CoroutineScope(Dispatchers.IO).launch {
+            Timber.tag("Data").v(gson.toJson(characterDetailsDAO.getCharacters()))
         }
     }
 
